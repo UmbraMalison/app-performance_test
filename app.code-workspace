@@ -1,39 +1,35 @@
 {
-	"folders":
-	[
-		{
-			"path": ".",
-		},
-		{
-			"path": "../zephyr",
-			"name": "ZEPHYR"
-		},
-		{
-			"path": "../modules/hal",
-			"name": "HAL"
-		},
-		{
-			"path": "../modules/lib",
-			"name": "LIB"
-		}
-	],
-	"settings":
-	{
-		"C_Cpp.default.compileCommands": "${workspaceFolder:APP}/build/compile_commands.json",
-		"C_Cpp.default.compilerPath": "${userHome}/zephyr-sdk-0.16.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc.exe",
+  "folders":
+  [
+    {
+      "path": ".",
+    },
+    {
+      "path": "../zephyr",
+      "name": "ZEPHYR"
+    },
+    {
+      "path": "../modules/hal",
+      "name": "HAL"
+    },
+    {
+      "path": "../modules/lib",
+      "name": "LIB"
+    }
+  ],
+  "settings":
+  {
+    "C_Cpp.default.compileCommands": "${workspaceFolder:APP}/build/compile_commands.json",
+    "C_Cpp.default.compilerPath": "${userHome}/zephyr-sdk-0.16.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc.exe",
 
-		"cortex-debug.armToolchainPrefix": "arm-zephyr-eabi",
-		"cortex-debug.armToolchainPath": "${userHome}/zephyr-sdk-0.16.3/arm-zephyr-eabi/bin",
+    "cortex-debug.armToolchainPrefix": "arm-zephyr-eabi",
+    "cortex-debug.armToolchainPath": "${userHome}/zephyr-sdk-0.16.3/arm-zephyr-eabi/bin",
 
-		"cortex-debug.openocdPath.linux": "${userHome}/zephyr-sdk-0.16.3/sysroots/x86_64-pokysdk-linux/usr/bin/openocd",
-		//"cortex-debug.openocdPath.windows": "C:/msys64/ucrt64/bin/openocd.exe",
-		// "cortex-debug.openocdPath.windows": "${env:PROGRAMFILES}/OpenOCD/bin/openocd.exe",
+    "cortex-debug.openocdPath.linux": "${userHome}/zephyr-sdk-0.16.3/sysroots/x86_64-pokysdk-linux/usr/bin/openocd",
+    //"cortex-debug.openocdPath.windows": "C:/msys64/ucrt64/bin/openocd.exe",
+    // "cortex-debug.openocdPath.windows": "${env:PROGRAMFILES}/OpenOCD/bin/openocd.exe",
 
-		"cmake.configureOnOpen": false,
-		"cmake.ignoreCMakeListsMissing": true,
-		"files.associations": {
-			"math.h": "c",
-			"soc.h": "c"
-		}
-	}
+    "cmake.configureOnOpen": false,
+    "cmake.ignoreCMakeListsMissing": true
+  }
 }

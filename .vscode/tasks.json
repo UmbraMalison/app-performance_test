@@ -1,214 +1,216 @@
 {
-	"version": "2.0.0",
-	"presentation":
-	{
-		"echo": true,
-		"reveal": "always",
-		"focus": false,
-		"panel": "dedicated",
-		"showReuseMessage": true,
-		"clear": true
-	},
-	"options":
-	{
-		"env":
-		{
-			"BOARD": "${input:board}",
-			"ZEPHYR_BASE": "${workspaceFolder:ZEPHYR}"
-		}
-	},
-	"tasks":
-	[
-		{
-			"label": "Build",
-			"type": "shell",
-			"linux":
-			{
-				"command": "${userHome}/zephyr-venv/bin/west"
-			},
-			"windows":
-			{
-				"command": "${userHome}/zephyr-venv/Scripts/west.exe"
-			},
-			"args": 
-			[
-				"build",
-				"-p",
-				"${input:rebuild}"
-			],
-			"group":
-			{
-				"kind": "build",
-				"isDefault": true
-			},
-		},
-		{
-			"label": "Build Debug - Thread Analyser",
-			"type": "shell",
-			"linux":
-			{
-				"command": "${userHome}/zephyr-venv/bin/west"
-			},
-			"windows":
-			{
-				"command": "${userHome}/zephyr-venv/Scripts/west.exe"
-			},
-			"args":
-			[
-				"build",
-				"-p",
-				"${input:rebuild}",
-				"--",
-				"-DCONFIG_THREAD_ANALYZER=y",
-				"-DCONFIG_THREAD_ANALYZER_USE_PRINTK=y",
-				"-DCONFIG_THREAD_ANALYZER_AUTO=y",
-				"-DCONFIG_THREAD_ANALYZER_AUTO_INTERVAL=5",
-				"-DCONFIG_THREAD_NAME=y"
-			],
-			"group":
-			{
-				"kind": "build",
-				"isDefault": true
-			},
-		},
-		{
-			"label": "Flash (OpenOCD)",
-			"type": "shell",
-			"linux":
-			{
-				"command": "${userHome}/zephyr-venv/bin/west"
-			},
-			"windows":
-			{
-				"command": "${userHome}/zephyr-venv/Scripts/west.exe"
-			},
-			"args":
-			[
-				"flash"
-			],
-			"group":
-			{
-				"kind": "build",
-				"isDefault": false
-			}
-		},
-		{
-			"label": "Flash (STM32CubeProgrammer)",
-			"type": "shell",
-			"linux":
-			{
-				"command": "${userHome}/zephyr-venv/bin/west"
-			},
-			"windows":
-			{
-				"command": "${userHome}/zephyr-venv/Scripts/west.exe"
-			},
-			"args":
-			[
-				"flash",
-				"--runner",
-				"stm32cubeprogrammer"
-			],
-			"group":
-			{
-				"kind": "build",
-				"isDefault": false
-			}			
-		},
-		{
-			"label": "Menuconfig",
-			"type": "shell",
-			"linux":
-			{
-				"command": "${userHome}/zephyr-venv/bin/west"
-			},
-			"windows":
-			{
-				"command": "${userHome}/zephyr-venv/Scripts/west.exe"
-			},
-			"args": 
-			[
-				"build",
-				"-t",
-				"menuconfig"
-			],
-			"group":
-			{
-				"kind": "build",
-				"isDefault": false
-			},
-			"presentation":
-			{
-				"focus": true
-			}
-		},
-		{
-			"label": "Initialise Project",
-			"type": "shell",
-			"linux":
-			{
-				"command": "${userHome}/zephyr-venv/bin/west"
-			},
-			"windows":
-			{
-				"command": "${userHome}/zephyr-venv/Scripts/west.exe"
-			},
-			"args":
-			[
-				"init",
-				"--local",
-				"${workspaceFolder:APP}"
-			],
-			"options": {
-				"cwd": "${workspaceFolder:APP}/../"
-			},
-			"group":
-			{
-				"kind": "build",
-				"isDefault": false
-			}
-		},
-		{
-			"label": "Update west",
-			"type": "shell",
-			"linux":
-			{
-				"command": "${userHome}/zephyr-venv/bin/west"
-			},
-			"windows":
-			{
-				"command": "${userHome}/zephyr-venv/Scripts/west.exe"
-			},
-			"args": 
-			[
-				"update"
-			],
-			"group":
-			{
-				"kind": "build",
-				"isDefault": false
-			}
-		}
-	],
-	"inputs": [
-		{
-			"id": "board",
-			"description": "Select board to compile for: ",
-			"default": "nucleo_g071rb",
-			"type": "pickString",
-			"options": ["nucleo_g071rb"]
-		},
-		{
-			"id": "rebuild",
-			"type": "pickString",
-			"description": "Choose to rebuild: ",
-			"default": "auto",
-			"options":
-			[
-				"auto",
-				"always",
-				"never"
-			]
-		}
-	]
+  "version": "2.0.0",
+  "presentation":
+  {
+    "echo": true,
+    "reveal": "always",
+    "focus": false,
+    "panel": "dedicated",
+    "showReuseMessage": true,
+    "clear": true
+  },
+  "options":
+  {
+    "env":
+    {
+      "BOARD": "${input:board}",
+      "ZEPHYR_BASE": "${workspaceFolder:ZEPHYR}"
+    }
+  },
+  "tasks":
+  [
+    {
+      "label": "Build",
+      "type": "shell",
+      "linux":
+      {
+        "command": "${userHome}/zephyr-venv/bin/west"
+      },
+      "windows":
+      {
+        "command": "${userHome}/zephyr-venv/Scripts/west.exe"
+      },
+      "args": 
+      [
+        "build",
+        "-p",
+        "${input:rebuild}"
+      ],
+      "group":
+      {
+        "kind": "build",
+        "isDefault": true
+      },
+    },
+    {
+      "label": "Build Debug - Thread Analyser",
+      "type": "shell",
+      "linux":
+      {
+        "command": "${userHome}/zephyr-venv/bin/west"
+      },
+      "windows":
+      {
+        "command": "${userHome}/zephyr-venv/Scripts/west.exe"
+      },
+      "args":
+      [
+        "build",
+        "-p",
+        "${input:rebuild}",
+        "--",
+        "-DCONFIG_THREAD_ANALYZER=y",
+        "-DCONFIG_THREAD_ANALYZER_USE_PRINTK=y",
+        "-DCONFIG_THREAD_ANALYZER_AUTO=y",
+        "-DCONFIG_THREAD_ANALYZER_AUTO_INTERVAL=5",
+        "-DCONFIG_THREAD_NAME=y"
+      ],
+      "group":
+      {
+        "kind": "build",
+        "isDefault": true
+      },
+    },
+    {
+      "label": "Flash (OpenOCD)",
+      "type": "shell",
+      "linux":
+      {
+        "command": "${userHome}/zephyr-venv/bin/west"
+      },
+      "windows":
+      {
+        "command": "${userHome}/zephyr-venv/Scripts/west.exe"
+      },
+      "args":
+      [
+        "flash"
+      ],
+      "group":
+      {
+        "kind": "build",
+        "isDefault": false
+      }
+    },
+    {
+      "label": "Flash (STM32CubeProgrammer)",
+      "type": "shell",
+      "linux":
+      {
+        "command": "${userHome}/zephyr-venv/bin/west"
+      },
+      "windows":
+      {
+        "command": "${userHome}/zephyr-venv/Scripts/west.exe"
+      },
+      "args":
+      [
+        "flash",
+        "--runner",
+        "stm32cubeprogrammer"
+      ],
+      "group":
+      {
+        "kind": "build",
+        "isDefault": false
+      }			
+    },
+    {
+      "label": "Menuconfig",
+      "type": "shell",
+      "linux":
+      {
+        "command": "${userHome}/zephyr-venv/bin/west"
+      },
+      "windows":
+      {
+        "command": "${userHome}/zephyr-venv/Scripts/west.exe"
+      },
+      "args": 
+      [
+        "build",
+        "-t",
+        "menuconfig"
+      ],
+      "group":
+      {
+        "kind": "build",
+        "isDefault": false
+      },
+      "presentation":
+      {
+        "focus": true
+      }
+    },
+    {
+      "label": "Initialise Project",
+      "type": "shell",
+      "linux":
+      {
+        "command": "${userHome}/zephyr-venv/bin/west"
+      },
+      "windows":
+      {
+        "command": "${userHome}/zephyr-venv/Scripts/west.exe"
+      },
+      "args":
+      [
+        "init",
+        "--local",
+        "${workspaceFolder:APP}"
+      ],
+      "options":
+      {
+        "cwd": "${workspaceFolder:APP}/../"
+      },
+      "group":
+      {
+        "kind": "build",
+        "isDefault": false
+      }
+    },
+    {
+      "label": "Update west",
+      "type": "shell",
+      "linux":
+      {
+        "command": "${userHome}/zephyr-venv/bin/west"
+      },
+      "windows":
+      {
+        "command": "${userHome}/zephyr-venv/Scripts/west.exe"
+      },
+      "args": 
+      [
+        "update"
+      ],
+      "group":
+      {
+        "kind": "build",
+        "isDefault": false
+      }
+    }
+  ],
+  "inputs":
+  [
+    {
+      "id": "board",
+      "description": "Select board to compile for: ",
+      "default": "nucleo_g071rb",
+      "type": "pickString",
+      "options": ["nucleo_g071rb"]
+    },
+    {
+      "id": "rebuild",
+      "type": "pickString",
+      "description": "Choose to rebuild: ",
+      "default": "auto",
+      "options":
+      [
+        "auto",
+        "always",
+        "never"
+      ]
+    }
+  ]
 }

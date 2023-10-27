@@ -1,7 +1,8 @@
 #include <zephyr/dt-bindings/gpio/gpio.h>
 
 / { 
-    zephyr,user {
-        signal-gpios = <&gpioa 8 GPIO_ACTIVE_HIGH>;
-    };
+  zephyr,user
+  {
+    signal-gpios = <&gpioa 8 GPIO_ACTIVE_HIGH>;
+  };
 };
