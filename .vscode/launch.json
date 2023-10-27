@@ -1,0 +1,41 @@
+{
+	"version": "2.0.0",
+	"configurations":
+	[
+		{
+			"name": "OpenOCD",
+			"device": "${input:board}",
+			"type": "cortex-debug",
+			"request": "launch",
+			"servertype": "openocd",
+			"cwd": "${workspaceFolder}",
+			"executable": "build/zephyr/zephyr.elf",
+			"configFiles":
+			[
+				"${workspaceFolder:ZEPHYR}/boards/arm/${input:board}/support/openocd.cfg"
+			],
+			// "preLaunchTask": "Build"
+			// "runToEntryPoint": "main"
+		},
+		{
+			"name": "STLink",
+			"device": "${input:board}",
+			"type": "cortex-debug",
+			"request": "launch",
+			"servertype": "stlink",
+			"cwd": "${workspaceFolder}",
+			"executable": "build/zephyr/zephyr.elf",
+			// "preLaunchTask": "Build"
+			// "runToEntryPoint": "main"
+		}
+	],
+	"inputs": [
+		{
+			"id": "board",
+			"description": "Select board to deploy to: ",
+			"default": "nucleo_g071rb",
+			"type": "pickString",
+			"options": ["nucleo_g071rb"]
+		}
+	]
+}

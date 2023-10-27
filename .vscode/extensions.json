@@ -1,0 +1,31 @@
+{
+    "recommendations": [
+        // DevOps
+        "atlassian.atlascode", // Atlassian Integration
+        "mhutchie.git-graph", // git graphs
+        "aaron-bond.better-comments", // punchy comments
+        "alefragnani.bookmarks", // bookmarking lines of code
+        "oderwat.indent-rainbow", // highlight indentation
+        "donjayamanne.githistory",
+
+
+        // Embedded
+        "ms-vscode.cpptools-extension-pack", // installs C/C++, C/C++ Themes, CMake Tools
+        "ms-python.python",
+        "ms-vscode.vscode-embedded-tools",
+        "ms-vscode.vscode-serial-monitor",
+        "ms-vscode.hexeditor",
+        "twxs.cmake", // editing CMakeLists.txt
+        "marus25.cortex-debug",
+        "donjayamanne.python-environment-manager",
+        // "trond-snekvik.kconfig-lang", // deprecated for nrf-kconfig
+        "trond-snekvik.gnu-mapfiles",
+        "nordic-semiconductor.nrf-kconfig",
+        "nordic-semiconductor.nrf-devicetree",
+        "mcu-debug.memory-view",
+        "mcu-debug.peripheral-viewer",
+        "mcu-debug.rtos-views",
+        "redhat.vscode-xml",
+        "redhat.vscode-yaml",
+    ],
+}

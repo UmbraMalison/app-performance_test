@@ -1,0 +1,9 @@
+mainmenu "PerfT"
+
+source "Kconfig.zephyr"
+
+config PERFORMANCE_TESTING
+    default y
+    bool
+    select USE_STM32_HAL_GPIO
+    select USE_STM32_LL_GPIO
